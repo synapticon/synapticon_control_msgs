@@ -1,0 +1,3 @@
+string error_description
+int8 safety_status
+int8 error_number
