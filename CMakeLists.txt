@@ -11,6 +11,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/MotorErrors.msg"
   "srv/ResetDriveFault.srv"
   "srv/EnableDrive.srv"
+  "srv/DisableDrive.srv"
   DEPENDENCIES std_msgs
 )
 
