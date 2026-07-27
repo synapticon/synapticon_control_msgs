@@ -1,0 +1,11 @@
+# This service walks one or more CiA402 drives' state machine to Operation Enabled
+# (Switch On Disabled -> Ready to Switch On -> Switched On -> Operation Enabled,
+# resetting a Fault along the way if needed), driven per-cycle from the hardware
+# interface for each named drive independently -- it does not touch any other
+# drive on the bus.
+
+# DoF names to engage. Empty = every configured drive.
+string[] dof_names
+---
+# Return message
+string return_message

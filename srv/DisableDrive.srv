@@ -1,0 +1,10 @@
+# This service walks one or more CiA402 drives' state machine down to
+# Switch On Disabled (de-energised), driven per-cycle from the hardware
+# interface for each named drive independently -- it does not touch any other
+# drive on the bus.
+
+# DoF names to disengage. Empty = every configured drive.
+string[] dof_names
+---
+# Return message
+string return_message
