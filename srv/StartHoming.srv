@@ -1,12 +1,12 @@
-# This service starts the CiA402 homing of one or more drives: the controlword is
-# pulsed to 0x1F ("Enable operation" pattern + bit 4 = start homing) for one control
-# cycle, in whatever state and mode the drive currently is, then restored. Suited to
-# instantaneous homing methods only (e.g. homing at the current position): per CiA402
-# the bit-4 falling edge after the pulse interrupts motion-based homing. The drive
-# must be commissioned accordingly.
+# Requests CiA402 homing of one or more drives. The exact procedure is defined by the
+# serving node (e.g. an in-cycle controlword pulse for drives already in Homing mode,
+# or a full SDO sequence with the cyclic exchange stopped). Suited to instantaneous
+# homing methods only (e.g. homing at the current position); the drive must be
+# commissioned accordingly.
 
 # DoF names to home. Empty = every configured drive.
 string[] dof_names
 ---
-# Return message
+bool success
+# Per-drive result details.
 string return_message
