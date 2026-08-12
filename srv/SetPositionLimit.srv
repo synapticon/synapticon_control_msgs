@@ -1,0 +1,18 @@
+# Captures the drive's CURRENT position (0x6064) as its software position limit
+# (0x607D:01 = min, 0x607D:02 = max): move the joint to the desired end stop first,
+# then call this. Runs over SDO (via the ethercat_manager get_sdo/set_sdo services),
+# alongside the running cyclic loop. The written value is volatile on most drives —
+# set persist to issue the CiA 301 "store parameters" command (0x1010:01) afterwards
+# (the drive may stall briefly while writing flash; do this at standstill).
+
+# Joint whose drive gets the limit.
+string dof_name
+# false = set the minimum limit (0x607D:01), true = the maximum (0x607D:02).
+bool maximum
+# Also store the drive's parameters to non-volatile memory.
+bool persist
+---
+bool success
+string return_message
+# Raw drive position that was written to the limit object.
+int32 captured_raw
