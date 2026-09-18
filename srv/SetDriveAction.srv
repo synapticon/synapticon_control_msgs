@@ -1,0 +1,23 @@
+# This service requests one CiA402 drive action on one or more drives, naming the action
+# rather than having a service per action. The hardware interface walks each named drive's
+# state machine independently -- it does not touch any other drive on the bus.
+#
+# Actions that walk the state machine: 'enable' (to Operation Enabled), 'quick_stop' (ramp down
+# on the drive's quick stop ramp and stay energised and holding), 'disable' (ramp down, then
+# de-energise), 'disable_voltage' (de-energise at once, no ramp) and 'reset_fault' (clear a
+# Fault). An unsupported or unknown name is rejected without touching any drive.
+#
+# 'quick_stop' holding the drive energised depends on the drive's quick stop option code
+# (0x605A) being set to 6. The hardware reads it back at bring-up and warns otherwise.
+
+# Action name. See above for the accepted values.
+string action
+
+# DoF names to act on. Empty = every configured drive.
+string[] dof_names
+---
+# Whether the request was accepted. False if the action name is unknown or not supported.
+bool success
+
+# Return message
+string return_message
