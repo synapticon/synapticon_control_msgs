@@ -1,7 +1,7 @@
-# This service requests one CiA402 drive action on one or more drives, naming the action
-# rather than having a service per action. The hardware interface walks each named drive's
-# state machine independently, it does not touch any other drive on the bus.
-# An unsupported or unknown name is rejected without touching any drive.
+# Request a CiA402 drive action, such as enable, disable or reset fault, on selected drives.
+# The action is given by name, so one service covers all actions.
+# Each selected drive moves through its state machine independently, and other drives are not affected.
+# An unknown or unsupported action name is rejected and no drive is touched.
 
 # Known action names. The 'action' field is a plain string, so a raw string is accepted too.
 
@@ -40,5 +40,5 @@ string[] dof_names
 # Whether the request was accepted. False if the action name is unknown or not supported.
 bool success
 
-# Return message
-string return_message
+# Human-readable result or error description
+string message
