@@ -1,0 +1,44 @@
+# Request a CiA402 drive action, such as enable, disable or reset fault, on selected drives.
+# The action is given by name, so one service covers all actions.
+# Each selected drive moves through its state machine independently, and other drives are not affected.
+# An unknown or unsupported action name is rejected and no drive is touched.
+
+# Known action names. The 'action' field is a plain string, so a raw string is accepted too.
+
+# No request. Known to the hardware interface but rejected by this service.
+string NONE="none"
+
+# Walk to Operation Enabled.
+string ENABLE="enable"
+
+# Walk to Switched On.
+string SWITCH_ON="switch_on"
+
+# Walk to Ready to Switch On.
+string SHUTDOWN="shutdown"
+
+# Ramp down on the drive's quick stop ramp and stay energised and holding. This depends on the
+# drive's quick stop option code (0x605A) being set to 6. The hardware reads it back at
+# bring-up and warns otherwise.
+string QUICK_STOP="quick_stop"
+
+# Ramp down on the drive's quick stop ramp, then de-energise (Switch-on-Disabled).
+string DISABLE="disable"
+
+# De-energise at once with no ramp (Switch-on-Disabled).
+string DISABLE_VOLTAGE="disable_voltage"
+
+# Clear a Fault (Fault to Switch-on-Disabled) and do nothing else.
+string RESET_FAULT="reset_fault"
+
+# Action name. One of the constants above, or a raw string with the same value.
+string action
+
+# DoF names to act on. Empty = every configured drive.
+string[] dof_names
+---
+# Whether the request was accepted. False if the action name is unknown or not supported.
+bool success
+
+# Human-readable result or error description
+string message
