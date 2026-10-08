@@ -36,5 +36,5 @@ uint16 error_code
 # Error report description (0x203F:1), as the drive reports it.
 string error_report
 
-# The drive is under a latched drive fault reaction. Cleared through ~/clear_fault_reaction.
+# The drive is under a latched drive fault reaction.
 bool latched
