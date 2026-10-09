@@ -17,6 +17,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/DisableDrive.srv"
   "srv/SetDriveAction.srv"
   "srv/ClearFaultReaction.srv"
+  "srv/InjectFaultEvent.srv"
   DEPENDENCIES std_msgs
 )
 
