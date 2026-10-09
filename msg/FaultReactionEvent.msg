@@ -25,5 +25,9 @@ string[] error_report
 string action
 string[] acted_on
 
+# The injected event this reaction answered, for example "emergency_stop". Empty when the
+# reaction answered a joint entering a condition.
+string event
+
 # The joints latched after this event.
 string[] latched_joints

@@ -1,0 +1,11 @@
+# Hand a named event to the drive fault policy, for the named joints (empty = every configured
+# joint). The policy decides what to do with it and may refuse it. The built-in policy knows
+# "emergency_stop", which quick-stops the joints and latches them.
+string event
+string[] dof_names
+---
+# The policy's decision.
+bool accepted
+
+# Human-readable result or the reason for a refusal.
+string message
