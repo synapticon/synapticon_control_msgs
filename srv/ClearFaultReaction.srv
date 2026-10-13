@@ -1,0 +1,10 @@
+# End the latched drive fault reaction on the named joints (empty = all configured joints).
+# Clearing neither resets a drive's fault nor enables it. Those are separate drive actions,
+# requested afterwards.
+string[] dof_names
+---
+# Whether the request was accepted. False if a named joint is not configured.
+bool success
+
+# Human-readable result or error description.
+string message
