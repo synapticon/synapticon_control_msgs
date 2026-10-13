@@ -1,7 +1,6 @@
 # Decoded status of one drive, as the drive controller sees it. Part of DriveStatusArray.
 
-# CiA 402 device state, decoded from the statusword. The values are those of
-# cia402::DeviceState in synapticon_hardware_interface.
+# CiA 402 device state, decoded from the statusword.
 uint8 STATE_START=0
 uint8 STATE_NOT_READY_TO_SWITCH_ON=1
 uint8 STATE_SWITCH_ON_DISABLED=2
